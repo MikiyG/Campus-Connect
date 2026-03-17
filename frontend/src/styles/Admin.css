@@ -1,0 +1,347 @@
+.admin-page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #fff;
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.admin-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+
+.glow-accent, .glow-accent-2 {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffff00 0%, transparent 70%);
+  filter: blur(120px);
+  opacity: 0.15;
+  z-index: 1;
+}
+.glow-accent  { width: 600px; height: 600px; top: -10%; left: -10%; animation: float 20s ease-in-out infinite; }
+.glow-accent-2 { width: 800px; height: 800px; bottom: -20%; right: -15%; animation: float 25s ease-in-out infinite reverse; }
+
+.admin-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+}
+
+.admin-container h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #fff 0%, #ff0 50%, #fff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.6rem;
+  color: #ddd;
+  margin-bottom: 4rem;
+}
+
+.admin-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 500px;
+  margin: 0 auto 4rem;
+}
+
+.admin-actions .btn-primary {
+  padding: 1.4rem;
+  font-size: 1.2rem;
+}
+
+.logout-btn {
+  padding: 1.2rem 3rem;
+  font-size: 1.1rem;
+}
+
+/* Make admin logout button red with white text */
+.logout-btn {
+  background: #ff3b3b;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+}
+
+.logout-btn:hover {
+  background: #e03232;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(80px,-80px) rotate(8deg); }
+}
+
+/* New admin layout */
+.admin-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.admin-sidebar {
+  background: rgba(20,20,20,0.9);
+  border: 1px solid rgba(255,255,0,0.07);
+  padding: 1.6rem;
+  border-radius: 12px;
+  position: relative;
+}
+.admin-sidebar-header h2 { margin: 0 0 6px 0; font-size: 1.6rem; }
+.admin-sidebar .muted { color: #ddd; font-size: 0.9rem; margin-bottom: 1rem; }
+.admin-nav { display:flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.2rem; }
+.admin-nav button { text-align: left; padding: 0.9rem 1rem; border-radius: 8px; background: transparent; border: none; color: #fff; cursor: pointer; font-weight: 700; }
+.admin-nav button.active { background: rgba(255,255,0,0.08); color: #ffff00; }
+.admin-sidebar-foot { display:flex; gap:0.8rem; flex-direction: column; }
+
+.admin-main { background: rgba(14,14,14,0.9); padding: 1.6rem; border-radius: 12px; border: 1px solid rgba(255,255,0,0.05); }
+.admin-main h1 { margin-top: 0; font-size: 2.2rem; }
+.overview-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.2rem; }
+.overview-card { background: rgba(30,30,30,0.8); padding:1.2rem; border-radius: 10px; border:1px solid rgba(255,255,0,0.06); }
+.overview-card h3 { margin:0 0 .6rem 0; color:#fff; }
+
+.users-table { width:100%; border-collapse: collapse; margin-top: 1rem; background: transparent; }
+.users-table th, .users-table td { padding: 0.9rem 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.04); text-align: left; }
+.users-table th { color: #ffff99; }
+.users-table td button { padding: 0.45rem 0.7rem; border-radius: 8px; }
+
+/* Button variants used in dashboard */
+.btn-primary { background: linear-gradient(90deg,#ffd600,#ff8a00); color:#000; border:none; padding:0.45rem 0.75rem; border-radius:8px; cursor:pointer; font-weight:700; }
+.btn-primary:hover { opacity:0.95; }
+.btn-secondary { background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.08); padding:0.35rem 0.65rem; border-radius:8px; cursor:pointer; }
+.btn-secondary:hover { background: rgba(255,255,255,0.06); }
+.btn-danger { background:#ff3b3b; color:#fff; border:none; padding:0.35rem 0.65rem; border-radius:8px; cursor:pointer; }
+.btn-danger:hover { filter: brightness(0.95); }
+.btn-warning { background:#ffb84d; color:#000; border:none; padding:0.35rem 0.65rem; border-radius:8px; cursor:pointer; }
+.btn-warning:hover { filter: brightness(0.98); }
+.btn-outline { background:transparent; border:1px dashed rgba(255,255,255,0.08); color:#fff; padding:0.35rem 0.6rem; border-radius:8px; cursor:pointer; }
+.btn-outline:hover { background: rgba(255,255,255,0.04); border-style: solid; }
+.btn-primary:active,
+.btn-secondary:active,
+.btn-danger:active,
+.btn-warning:active,
+.btn-outline:active {
+  transform: translateY(1px);
+}
+
+/* Action buttons container */
+.action-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(92px, max-content));
+  justify-content: end;
+  gap: 8px;
+  align-items: center;
+}
+
+.action-buttons button {
+  height: 32px;
+  font-size: 12px;
+  padding: 0 10px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* ID image thumbnail */
+.id-thumbnail {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.2s ease;
+}
+
+.id-thumbnail:hover {
+  transform: scale(1.1);
+}
+
+.no-id {
+  color: #999;
+  font-style: italic;
+}
+
+.open-full-image {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.table-wrap { overflow:auto; border-radius:8px; }
+
+/* Modal styles */
+.modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; z-index:9999; }
+.modal { background: #0f0f0f; color:#fff; width:90%; max-width:600px; border-radius:10px; border:1px solid rgba(255,255,255,0.04); box-shadow:0 10px 30px rgba(0,0,0,0.6); overflow:hidden; }
+.modal-header { display:flex; align-items:center; justify-content:space-between; padding:1rem; border-bottom:1px solid rgba(255,255,255,0.03); }
+.modal-body { padding:1rem; }
+.modal-footer { padding:1rem; display:flex; justify-content:flex-end; gap:0.6rem; border-top:1px solid rgba(255,255,255,0.03); }
+.modal .close { background:transparent; border:none; color:#fff; font-size:1.1rem; cursor:pointer; }
+
+.placeholder-panel { padding: 1rem 0; }
+
+@media (min-width: 1100px) {
+  .action-buttons { grid-template-columns: repeat(3, minmax(92px, max-content)); }
+}
+
+@media (max-width: 900px) {
+  .admin-grid { grid-template-columns: 1fr; }
+  .overview-cards { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .action-buttons {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+  }
+  .action-buttons button { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .overview-cards { grid-template-columns: 1fr; }
+}
+
+/* Reports and Analytics Styles */
+.report-content { margin-top: 1rem; }
+.report-section {
+  background: rgba(25,25,25,0.6);
+  border: 1px solid rgba(255,255,0,0.06);
+  border-radius: 10px;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.report-section h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  color: #ffff99;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 0.6rem;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.stat-card {
+  background: rgba(40,40,40,0.5);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+.stat-card h4 {
+  margin: 0 0 0.4rem 0;
+  font-size: 0.85rem;
+  color: #ccc;
+  font-weight: normal;
+}
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+.stats-detail {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.stats-detail h4 {
+  margin: 0 0 0.6rem 0;
+  font-size: 0.95rem;
+  color: #aaa;
+}
+.stats-detail pre {
+  background: rgba(0,0,0,0.3);
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  overflow-x: auto;
+  margin: 0;
+}
+.stats-detail ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+.stats-detail li {
+  margin-bottom: 0.4rem;
+  color: #ccc;
+}
+
+.link-button {
+  background: transparent;
+  border: none;
+  color: #ffff00;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: inherit;
+}
+
+/* Report Buttons Grid */
+.report-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.report-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  background: rgba(35, 35, 35, 0.8);
+  border: 1px solid rgba(255, 255, 0, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.report-btn:hover {
+  background: rgba(255, 255, 0, 0.08);
+  border-color: rgba(255, 255, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+.report-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.report-label {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.report-desc {
+  color: #888;
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+.report-results {
+  margin-top: 1.5rem;
+}

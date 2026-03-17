@@ -1,0 +1,100 @@
+.features-page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #fff;
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.features-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.glow-accent,
+.glow-accent-2 {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffff00 0%, transparent 70%);
+  filter: blur(120px);
+  opacity: 0.15;
+  z-index: 1;
+}
+.glow-accent  { width: 600px; height: 600px; top: -10%; left: -10%; animation: float 20s ease-in-out infinite; }
+.glow-accent-2 { width: 800px; height: 800px; bottom: -20%; right: -15%; animation: float 25s ease-in-out infinite reverse; }
+
+.features-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.features-container h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #fff 0%, #ff0 50%, #fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  color: #ffff66;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  line-height: 1.7;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.feature-card {
+  background: rgba(30, 30, 30, 0.85);
+  border: 1px solid rgba(255, 255, 0, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-12px);
+  border-color: #ffff00;
+  box-shadow: 0 20px 40px rgba(255, 255, 0, 0.2);
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  color: #ffff00;
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  color: #ddd;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(80px, -80px) rotate(8deg); }
+}

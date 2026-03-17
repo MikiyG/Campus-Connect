@@ -1,0 +1,21 @@
+npm install lucide-react
+npm install @fontsource-variable/inter
+npm install react-router-dom
+
+# Frontend (run in frontend/ folder)
+npm install axios @tanstack/react-query @tanstack/react-query-devtools react-hook-form yup @hookform/resolvers socket.io-client date-fns clsx
+npm install tailwindcss postcss autoprefixer
+npm install @headlessui/react
+
+# Backend (run in backend/ folder)
+npm install express cors dotenv bcrypt jsonwebtoken helmet morgan cookie-parser multer nodemailer express-validator socket.io
+npm install pg sequelize sequelize-cli # if using Postgres/SQL
+npm install mongoose # if using MongoDB
+
+# Testing & Dev (devDependencies)
+npm install -D nodemon eslint prettier husky lint-staged jest supertest @testing-library/react @testing-library/jest-dom @testing-library/user-event msw cypress
+
+# Optional utilities
+npm install formik zod
+npm install react-helmet-async
+npm install dayjs

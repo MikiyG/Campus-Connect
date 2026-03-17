@@ -1,0 +1,172 @@
+.dashboard-page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #fff;
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.dashboard-hero {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.glow-accent,
+.glow-accent-2 {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffff00 0%, transparent 70%);
+  filter: blur(120px);
+  opacity: 0.15;
+  z-index: 1;
+}
+.glow-accent  { width: 700px; height: 700px; top: -15%; left: -15%; animation: float 22s ease-in-out infinite; }
+.glow-accent-2 { width: 900px; height: 900px; bottom: -25%; right: -20%; animation: float 28s ease-in-out infinite reverse; }
+
+.dashboard-hub {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.hub-header h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #fff 0%, #ff0 50%, #fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.hub-header .subtitle {
+  font-size: 1.7rem;
+  color: #ffff99;
+  margin-bottom: 4rem;
+  font-weight: 500;
+}
+
+/* Unique orbiting hub layout */
+.hub-cards {
+  position: relative;
+  height: 500px;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.hub-card {
+  position: absolute;
+  width: 280px;
+  height: 320px;
+  background: rgba(30, 30, 30, 0.9);
+  border: 2px solid rgba(255, 255, 0, 0.3);
+  border-radius: 32px;
+  padding: 2.5rem;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  backdrop-filter: blur(10px);
+}
+
+.hub-card .card-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  background: radial-gradient(circle at center, rgba(255,255,0,0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.hub-card:hover {
+  transform: translateY(-20px) scale(1.05);
+  border-color: #ffff00;
+  z-index: 10;
+}
+
+.hub-card:hover .card-glow {
+  opacity: 1;
+}
+
+.card-icon {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.hub-card h3 {
+  font-size: 2rem;
+  color: #ffff00;
+  margin-bottom: 1rem;
+}
+
+.hub-card p {
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Unique positions - orbiting around center */
+.events-card    { top: 10%; left: 10%; }
+.groups-card    { top: 10%; right: 10%; }
+.messaging-card { bottom: 10%; left: 15%; }
+.profile-card   { bottom: 10%; right: 15%; }
+
+/* Center actions */
+.hub-actions {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-btn, .logout-btn {
+  padding: 1.4rem 4rem;
+  font-size: 1.2rem;
+  min-width: 220px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(100px, -100px) rotate(10deg); }
+}
+
+@media (max-width: 1024px) {
+  .hub-cards { height: 600px; }
+  .events-card    { top: 5%; left: 5%; }
+  .groups-card    { top: 5%; right: 5%; }
+  .messaging-card { bottom: 5%; left: 5%; }
+  .profile-card   { bottom: 5%; right: 5%; }
+  .hub-card { width: 240px; height: 280px; }
+}
+
+@media (max-width: 768px) {
+  .hub-cards {
+    position: static;
+    height: auto;
+  }
+  .hub-card {
+    position: static;
+    margin: 1.5rem auto;
+    width: 90%;
+    max-width: 320px;
+  }
+}

@@ -1,0 +1,156 @@
+.messaging-page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #fff;
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.messaging-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+
+.glow-accent, .glow-accent-2 {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffff00 0%, transparent 70%);
+  filter: blur(120px);
+  opacity: 0.15;
+  z-index: 1;
+}
+.glow-accent  { width: 600px; height: 600px; top: -10%; left: -10%; animation: float 20s ease-in-out infinite; }
+.glow-accent-2 { width: 800px; height: 800px; bottom: -20%; right: -15%; animation: float 25s ease-in-out infinite reverse; }
+
+.messaging-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 1300px;
+  width: 100%;
+}
+
+.messaging-container h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #fff 0%, #ff0 50%, #fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #ddd;
+  margin-bottom: 3rem;
+}
+
+.messaging-layout {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  gap: 2rem;
+  background: rgba(20,20,20,0.9);
+  border-radius: 24px;
+  overflow: hidden;
+  height: 70vh;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.messaging-sidebar {
+  background: rgba(15,15,15,0.9);
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.conversation {
+  padding: 1.2rem;
+  border-bottom: 1px solid rgba(255,255,0,0.1);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.conversation:hover, .conversation.active {
+  background: rgba(255,255,0,0.1);
+}
+
+.conversation h4 {
+  margin: 0;
+  color: #ffff00;
+}
+
+.conversation p {
+  margin: 0.4rem 0 0;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.messaging-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,0,0.2);
+  text-align: left;
+}
+
+.chat-header h3 {
+  margin: 0;
+  color: #ffff00;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.placeholder {
+  text-align: center;
+  color: #777;
+  margin-top: 10rem;
+  font-size: 1.2rem;
+}
+
+.chat-input {
+  display: flex;
+  padding: 1.5rem;
+  border-top: 1px solid rgba(255,255,0,0.2);
+  gap: 1rem;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  background: rgba(40,40,40,0.95);
+  border: 1px solid rgba(255,255,0,0.3);
+  border-radius: 14px;
+  color: #fff;
+}
+
+.send-btn {
+  padding: 1rem 2rem;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(80px,-80px) rotate(8deg); }
+}
+
+@media (max-width: 768px) {
+  .messaging-layout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .messaging-sidebar { max-height: 300px; }
+}

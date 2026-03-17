@@ -1,0 +1,87 @@
+.about-page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #fff;
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.about-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.glow-accent,
+.glow-accent-2 {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffff00 0%, transparent 70%);
+  filter: blur(120px);
+  opacity: 0.15;
+  z-index: 1;
+}
+.glow-accent  { width: 600px; height: 600px; top: -10%; left: -10%; animation: float 20s ease-in-out infinite; }
+.glow-accent-2 { width: 800px; height: 800px; bottom: -20%; right: -15%; animation: float 25s ease-in-out infinite reverse; }
+
+.about-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  text-align: center;
+}
+
+.about-container h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #fff 0%, #ff0 50%, #fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.5rem;
+  color: #ffff66;
+  margin-bottom: 3rem;
+}
+
+.about-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin: 1.5rem 0;
+  color: #ddd;
+}
+
+.mission h2 {
+  font-size: 2.2rem;
+  margin: 3rem 0 1.5rem;
+  color: #ffff00;
+}
+
+.quote {
+  font-size: 1.6rem;
+  font-style: italic;
+  color: #ffff99;
+  padding: 2rem;
+  border-left: 4px solid #ffff00;
+  background: rgba(255, 255, 0, 0.05);
+  border-radius: 8px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(80px, -80px) rotate(8deg); }
+}
